@@ -1,4 +1,4 @@
-import Button from "./Button.jsx";
+import CurrencyButton from "./CurrencyButton.jsx";
 
 export default function BaseCurrency(props) {
 
@@ -7,6 +7,6 @@ export default function BaseCurrency(props) {
     const name = details[1];
 
 return (
-    <Button dataID={code} isActive={isActive} onClick={onClick}>{code} {name}</Button>
+    <CurrencyButton dataID={code} isActive={isActive} onClick={onClick}>{code} {name}</CurrencyButton>
 )
 }

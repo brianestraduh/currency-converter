@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import useFetch from "./useFetch.js"
 import BaseCurrency from "./BaseCurrency.jsx";
 import TargetCurrency from "./TargetCurrency.jsx";
+import TrackRateAnchor from "./TrackRateAnchor.jsx";
 export default function Currencies() {
 
     const [countryCurrency, setCountryCurrency] = useState([])
     const [activeBaseCurrency, setActiveBaseCurrency] = useState('')
     const [activeTargetCurrency, setActiveTargetCurrency] = useState('')
+    const [trackRateActive, setTrackRate] = useState(false)
     
 // Callback functions
 const handleBaseCurrencyClick = (index) => {
@@ -16,6 +18,19 @@ const handleBaseCurrencyClick = (index) => {
   const handleTargetCurrencyClick = (index) => {
     setActiveTargetCurrency(index);
   };
+
+//function to set track rate button to active if both base and target currencies are selected
+useEffect(() => {
+  handleTrackRate();
+}, [activeBaseCurrency, activeTargetCurrency]);
+
+const handleTrackRate = () => {
+  if (activeBaseCurrency !== '' && activeTargetCurrency !== '') {
+    setTrackRate(true);
+  } else {
+    setTrackRate(false);
+  }
+};
 
     const fetch = useFetch('https://v6.exchangerate-api.com/v6/b560af4e412f93257f414644')
   
@@ -36,7 +51,7 @@ const handleBaseCurrencyClick = (index) => {
             key={index}
             details={currency}
             isActive={index===activeBaseCurrency}
-            onClick={()=> handleBaseCurrencyClick(index)} />
+            onClick={() => { handleBaseCurrencyClick(index); handleTrackRate(); }} />
         })}
 </div>
     <h2>Target Currencies</h2>
@@ -46,8 +61,13 @@ const handleBaseCurrencyClick = (index) => {
             key={index}
             details={currency}
             isActive={index=== activeTargetCurrency}
-            onClick={()=> handleTargetCurrencyClick(index)} />
+            onClick={() => { handleTargetCurrencyClick(index); handleTrackRate(); }} />
         })}
+</div>
+<div id="track-rate-btn">
+    <TrackRateAnchor 
+    disabled={!trackRateActive}
+    >Track Rate</TrackRateAnchor>
 </div>
     </>
   )
