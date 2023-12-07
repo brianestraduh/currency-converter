@@ -48,7 +48,7 @@ const handleTrackRate = () => {
 
   return (
     <>
-    <h2>Base Currencies</h2>
+    <h2>Select your base currency</h2>
     <div id="base-currency-grid">
         {countryCurrency.map((currency, index) => {
             return <BaseCurrency 
@@ -58,7 +58,7 @@ const handleTrackRate = () => {
             onClick={() => { handleBaseCurrencyClick(index); handleTrackRate(); }} />
         })}
 </div>
-    <h2>Target Currencies</h2>
+    <h2>Select your target currency</h2>
     <div id="target-currency-grid">
         {countryCurrency.map((currency, index) => {
             return <TargetCurrency
