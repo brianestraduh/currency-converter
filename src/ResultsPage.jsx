@@ -10,6 +10,7 @@ export default function ResultsPage() {
     const [baseCurrency, setBaseCurrency] = useState('')
     const [targetCurrency, setTargetCurrency] = useState('')
     const [conversionRate, setConversionRate] = useState('')
+    const [lastUpdatedTime, setLastUpdatedTime] = useState('')
 
     const { get, loading } = useFetch('https://v6.exchangerate-api.com/v6/b560af4e412f93257f414644/pair')
     useEffect(() => {
@@ -19,8 +20,19 @@ export default function ResultsPage() {
             setBaseCurrency(data.base_code);
             setTargetCurrency(data.target_code);
             setConversionRate(data.conversion_rate);
+            setLastUpdatedTime(currentTimeInRTFFormat)
         })
     }, [])
+
+    function getFormattedLastUpdatedTime(lastUpdatedTime) {
+      const now = Date.now();
+      const lastUpdated = new Date(lastUpdatedTime).getTime();
+      const diffInMinutes = Math.round((now - lastUpdated) / 1000 / 60);
+      const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+      return rtf.format(-diffInMinutes, 'minute');
+    } 
+
+    const currentTimeInRTFFormat = getFormattedLastUpdatedTime(new Date());
 
 
     return (
@@ -41,6 +53,7 @@ export default function ResultsPage() {
       <>
         <h2>{baseCurrency} to {targetCurrency}</h2>
         <h2>1 {baseCurrency} = {conversionRate} {targetCurrency}</h2>
+        <p>{baseCurrency} to {targetCurrency} - Last updated {lastUpdatedTime}</p>
       </>
     )}
         </>
