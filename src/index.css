@@ -38,8 +38,9 @@ button,a {
   background-color: white;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: black;
 }
-button:hover, a:hover {
+button:hover {
   border-color: #646cff;
 }
 .active {
@@ -56,6 +57,7 @@ button:hover, a:hover {
   }
   button, a {
     background-color: #f9f9f9;
+    text-decoration: none;
   }
   
   a.disabled {
