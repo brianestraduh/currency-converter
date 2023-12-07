@@ -63,8 +63,9 @@ const handleTrackRate = () => {
         {countryCurrency.map((currency, index) => {
             return <TargetCurrency
             key={index}
-            details={currency}
+            details={{currency, activeBaseCurrency}}
             isActive={index=== activeTargetCurrency}
+            disabled={index===activeBaseCurrency}
             onClick={() => { handleTargetCurrencyClick(index); handleTrackRate(); }} />
         })}
 </div>
