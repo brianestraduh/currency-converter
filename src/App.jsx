@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Currencies from './Currencies.jsx'
 import ResultsPage from './ResultsPage.jsx'
-import Loader from './Loader.jsx'
 
 
 function App() {
