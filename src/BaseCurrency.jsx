@@ -10,8 +10,18 @@ export default function BaseCurrency(props) {
     const flagEmoji = getEmojiByCurrencyCode(code) || '🏳️';
 
     return (
-        <CurrencyButton dataID={code} isActive={isActive} onClick={onClick}>
-            <Twemoji text={flagEmoji} /> {code} {name}
+        <CurrencyButton 
+        className="currency-card"
+        dataID={code}
+        isActive={isActive}
+        onClick={onClick}>
+        <div className="country-items">
+            <div className="emoji-code-pair">
+                <Twemoji text={flagEmoji} />         
+                <span className="text-country-name">{code}</span>
+            </div> 
+            <span className="text-country-name">{name}</span>
+        </div>
         </CurrencyButton>
     )
 }

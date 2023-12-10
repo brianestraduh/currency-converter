@@ -10,7 +10,7 @@
         letter-spacing: 0.3px;
     }
 
-    .text--dimmed{
+    .text-country-name{
         font-size: 0.875rem;
         color: var(--light-text-color);
     }
