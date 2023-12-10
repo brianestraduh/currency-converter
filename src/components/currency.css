@@ -1,0 +1,8 @@
+@layer component {
+    .currency-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+        grid-gap: 1rem;
+        margin-bottom: 1rem;
+    }
+}

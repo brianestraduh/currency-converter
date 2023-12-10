@@ -1,0 +1,25 @@
+@layer component {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        width: 100%;
+        background-color: white;
+    }
+    @media (max-width: 600px) {
+        .nav-container {
+            justify-content: center;
+        }
+    }
+
+    .logo-title {
+        padding-left: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+
+}

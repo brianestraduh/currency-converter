@@ -49,36 +49,38 @@ const handleTrackRate = () => {
 
   return (
     <>
-    <h2>Select your base currency</h2>
-    <div id="base-currency-grid">
-        {countryCurrency.map((currency, index) => {
-            return <BaseCurrency 
-            key={index}
-            details={currency}
-            isActive={index===activeBaseCurrency}
-            onClick={() => { handleBaseCurrencyClick(index); handleTrackRate(); }} />
-        })}
-</div>
-    <h2>Select your target currency</h2>
-    <div id="target-currency-grid">
-        {countryCurrency.map((currency, index) => {
-            return <TargetCurrency
-            key={index}
-            details={{currency, activeBaseCurrency}}
-            isActive={index=== activeTargetCurrency}
-            disabled={index===activeBaseCurrency}
-            onClick={() => { handleTargetCurrencyClick(index); handleTrackRate(); }} />
-        })}
-</div>
-{trackRateActive ? (
-  <Link to={`/${baseCurrencyCode}/${targetCurrencyCode}`}>
-    <TrackRateAnchor>Track Rate</TrackRateAnchor>
-  </Link>
-) : (
-  <span>
-    <TrackRateAnchor disabled>Track Rate</TrackRateAnchor>
-  </span>
-)}
+    <div className="container">
+      <h2>Select your base currency</h2>
+      <div className="currency-grid">
+          {countryCurrency.map((currency, index) => {
+              return <BaseCurrency 
+              key={index}
+              details={currency}
+              isActive={index===activeBaseCurrency}
+              onClick={() => { handleBaseCurrencyClick(index); handleTrackRate(); }} />
+          })}
+      </div>
+      <h2>Select your target currency</h2>
+      <div className="currency-grid">
+          {countryCurrency.map((currency, index) => {
+              return <TargetCurrency
+              key={index}
+              details={{currency, activeBaseCurrency}}
+              isActive={index=== activeTargetCurrency}
+              disabled={index===activeBaseCurrency}
+              onClick={() => { handleTargetCurrencyClick(index); handleTrackRate(); }} />
+          })}
+      </div>
+  {trackRateActive ? (
+    <Link to={`/${baseCurrencyCode}/${targetCurrencyCode}`}>
+      <TrackRateAnchor>Track Rate</TrackRateAnchor>
+    </Link>
+  ) : (
+    <span>
+      <TrackRateAnchor disabled>Track Rate</TrackRateAnchor>
+    </span>
+  )}
+  </div>
     </>
   )
 }

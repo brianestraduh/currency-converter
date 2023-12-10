@@ -1,0 +1,31 @@
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: system-ui;
+        margin: 0;
+    }
+
+    :root {
+        --main-color: #355FE5;
+        --text-color: #OA112F;
+        --main-font: 'Montserrat', sans-serif;
+        --background-color: #e4e4e4;
+
+    }
+
+    html {
+        background-color: var(--background-color);
+    }
+    input, textarea, button, select {
+        font: inherit;
+    }
+     
+    .ax-button{
+        all: unset; 
+        outline: revert; 
+        box-sizing: border-box;
+    }
+}

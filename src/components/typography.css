@@ -1,0 +1,17 @@
+@layer component {
+    .company-logo {
+        font-size: 1.875rem;
+        font-family: var(--main-font); 
+        color: var(--main-color);
+    }
+    .title{
+        font-size: 1.125rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .text--dimmed{
+        font-size: 0.875rem;
+        color: var(--light-text-color);
+    }
+}
