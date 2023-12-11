@@ -10,7 +10,7 @@ export default function Currencies() {
     const [activeBaseCurrency, setActiveBaseCurrency] = useState('')
     const [activeTargetCurrency, setActiveTargetCurrency] = useState('')
     const [trackRateActive, setTrackRate] = useState(false)
-;
+
     
 // Callback functions
 const handleBaseCurrencyClick = (index) => {

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import useFetch from "./useFetch";
@@ -9,6 +8,8 @@ import { Twemoji } from 'react-emoji-render';
 export default function ResultsPage() {
 
     const { baseCurrCode, targetCurrCode } = useParams();
+
+
     const timeRef = useRef(null);
     const intervalRef = useRef(null);
     //define const for emoji flag
@@ -84,14 +85,6 @@ export default function ResultsPage() {
         <div className="container">
           <h2 className="center-text company-logo header">Current<span className="blue-text">Currency</span> Converter</h2>
           <p className="currency-paragraph">Convert live foreign currency exchange rates</p>
-          <Link to="/">
-              <img 
-              src="/public/assets/back.svg"
-              width="36px"
-              height="auto" 
-              alt="back arrow" 
-              className="back"/>
-          </Link>
           {loading ? (
         <Loader />
       ) : (
