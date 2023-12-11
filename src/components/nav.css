@@ -20,6 +20,35 @@
         justify-content: center;
         gap: 0.5rem;
     }
+    
+    .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        padding-right: 1rem;
+    }
 
+    
+    .nav-links-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    @media (max-width: 950px) {
+        .nav-container {
+            justify-content: center;
+            flex-direction: column;
+        }
+        .nav-links {
+            padding: 1rem 0;
+        }
+        .nav-links-right {
+            padding: 1rem 0;
+        }
+    }
 
 }

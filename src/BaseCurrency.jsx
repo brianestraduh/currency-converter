@@ -18,7 +18,7 @@ export default function BaseCurrency(props) {
         <div className="country-items">
             <div className="emoji-code-pair">
                 <Twemoji text={flagEmoji} />         
-                <span className="text-country-name">{code}</span>
+                <span className="text-country-code">{code}</span>
             </div> 
             <span className="text-country-name">{name}</span>
         </div>
