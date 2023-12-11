@@ -4,8 +4,12 @@ import useFetch from "./useFetch";
 import Loader from "./Loader";
 import {getEmojiByCurrencyCode} from "country-currency-emoji-flags";
 import { Twemoji } from 'react-emoji-render';
+import { useSelector } from "react-redux";
 
 export default function ResultsPage() {
+
+  const selectedCurrency = useSelector((state) => state.selectedCurrency);
+  console.log(selectedCurrency)
 
     const { baseCurrCode, targetCurrCode } = useParams();
 

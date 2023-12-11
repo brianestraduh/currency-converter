@@ -18,6 +18,7 @@ export default function Currencies() {
 // Callback functions
 const handleBaseCurrencyClick = (index) => {
     setActiveBaseCurrency(index);
+    console.log(index); // Add this line
   };
   
   const handleTargetCurrencyClick = (index) => {
@@ -65,9 +66,7 @@ const handleTrackRate = () => {
               details={currency}
               isActive={index===activeBaseCurrency}
               onClick={() => { 
-                if (index===activeBaseCurrency) {
-                  dispatch(addBaseCurrency(currency[0]))
-                }
+                dispatch(addBaseCurrency(currency[1]));
                 handleBaseCurrencyClick(index); 
                 handleTrackRate(); }} />
           })}
@@ -80,7 +79,10 @@ const handleTrackRate = () => {
               details={{currency, activeBaseCurrency}}
               isActive={index=== activeTargetCurrency}
               disabled={index===activeBaseCurrency}
-              onClick={() => { handleTargetCurrencyClick(index); handleTrackRate(); }} />
+              onClick={() => { 
+                dispatch(addTargetCurrency(currency[1]));
+                handleTargetCurrencyClick(index); 
+                handleTrackRate(); }} />
           })}
       </div>
   {trackRateActive ? (
