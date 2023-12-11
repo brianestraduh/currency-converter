@@ -82,13 +82,13 @@ export default function ResultsPage() {
     return (
         <>
         <div className="container">
-          <h2 className="center-text">Current<span className="blue-text">Currency</span> Converter</h2>
+          <h2 className="center-text company-logo header">Current<span className="blue-text">Currency</span> Converter</h2>
           <p className="currency-paragraph">Convert live foreign currency exchange rates</p>
           <Link to="/">
               <img 
               src="/public/assets/back.svg"
-              width="24px"
-              height="24px" 
+              width="36px"
+              height="auto" 
               alt="back arrow" 
               className="back"/>
           </Link>
@@ -96,25 +96,54 @@ export default function ResultsPage() {
         <Loader />
       ) : (
         <>
-          <button id="swap-base-btn" onClick={()=>handleBaseChange()}>swap</button>
   {/* here I am conditionally showing the conversion rate based on the swap state 
   if it's false then it does the orginal base/target */}        
   {swap ? (
     <>
-      <h2> <Twemoji text={targetFlagEmoji} /> {targetCurrency} to <Twemoji text={baseFlagEmoji} /> {baseCurrency}</h2>
-      <h2>1 {targetCurrency} = {Number((1/conversionRate).toFixed(4))} {baseCurrency}</h2>
-      <p>{targetCurrency} to {baseCurrency} - Last updated {lastUpdatedTime}</p>
+    <div className="result-card-flex">
+      <div className="selected-currency-card"> 
+        <Twemoji text={targetFlagEmoji} /> {targetCurrency}
+      </div>
+      <button id="swap-base-btn" onClick={()=>handleBaseChange()} className="ax-button rounded-swap-button">
+        <img src="/assets/swap.svg" alt="swap button" height="24px" width="auto" />
+      </button>
+      <div className="selected-currency-card">
+        <Twemoji text={baseFlagEmoji} /> {baseCurrency}
+      </div>
+    </div>
+      <div className="center-text">
+        <p>1 {targetCurrency} = {Number((1/conversionRate).toFixed(4))} {baseCurrency}</p>
+      </div>
+      <div className="results-update-flex">
+        <p>{targetCurrency} to {baseCurrency} - Last updated {lastUpdatedTime}</p>
+        <button id="refresh-btn" onClick={()=>handleRefresh()} className="rounded-button ax-button">Refresh</button>
+      </div>
     </>
   ) : (
     <>
-      <h2><Twemoji text={baseFlagEmoji} />{baseCurrency} to <Twemoji text={targetFlagEmoji} /> {targetCurrency}</h2>
-      <h2>1 {baseCurrency} = {conversionRate} {targetCurrency}</h2>
+    <div className="result-card-flex">
+      <div className="selected-currency-card"> 
+        <Twemoji text={baseFlagEmoji} /> {baseCurrency}
+      </div>
+      <button id="swap-base-btn" onClick={()=>handleBaseChange()} className="ax-button rounded-swap-button">
+        <img src="/assets/swap.svg" alt="swap button" height="24px" width="auto"/>
+      </button>
+      <div className="selected-currency-card">
+        <Twemoji text={targetFlagEmoji} /> {targetCurrency}
+      </div>
+    </div>
+    <div className="center-text">
+      <p>1 {baseCurrency} = {conversionRate} {targetCurrency}</p>
+    </div>
+    <div className="results-update-flex">
       <p>{baseCurrency} to {targetCurrency} - Last updated {lastUpdatedTime}</p>
+      <button id="refresh-btn" onClick={()=>handleRefresh()} className="rounded-button ax-button">Refresh
+      </button>
+    </div>
     </>
   )}
         </>
       )}
-      <button id="refresh-btn" onClick={()=>handleRefresh()}>Refresh</button>
     </div>
         </>
     )

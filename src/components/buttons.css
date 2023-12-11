@@ -13,4 +13,22 @@
     .btn {
         cursor: pointer;
     }
+
+    .rounded-swap-button {
+        background-color: white;
+        color: var(--main-color);
+        border: 2px solid transparent;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    
+    .rounded-swap-button:active {
+        transform: translateY(2px);
+    }
+    
+    .rounded-swap-button:hover {
+        border-color: var(--main-color);
+    }
+
 }
