@@ -5,7 +5,7 @@ Welcome to my implementation of a Currency Conversion Web Application!
 Features:
 
 Stack/Skills Practiced:
-React
+React / Redux for State Management
 Semantic HTML/CSS
 API Integration
 Focus on Accessibility 
