@@ -22,6 +22,19 @@
         font-size: 0.875rem;
         font-weight: normal;
         font-family: var(--main-font);
-        color: #737373;
+        color: var(--light-text-color);
     }
+
+    .text-dimmed {
+        font-size: 0.875rem;
+        color: var(--light-text-color);
+    }
+
+    .text-bold {
+        font-size: 0.875rem;
+        font-weight: bold;
+        font-family: var(--main-font);
+        color: black;
+    }
+
 }
