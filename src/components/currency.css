@@ -35,13 +35,4 @@
         padding-bottom: 0.5rem;
     }
 
-    strong {
-        color: var(--main-color);
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-
 }

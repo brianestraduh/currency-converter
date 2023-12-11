@@ -51,9 +51,9 @@ const handleTrackRate = () => {
     <>
     <div className="container">
       <header>
-        <h1 >The safe and easy way to <strong>exchange</strong> your <strong>money</strong></h1>
+        <h1 className="center-text">The safe and easy way to <span className="blue-text"><strong>exchange</strong></span> your <span className="blue-text"><strong>money</strong></span></h1>
       </header>
-      <p className="currency-paragaph">{`You always get the best exchange rate with CurrentCurrency, whether you send, spend or convert money in dozens of currencies. But don\'t take our word for it.`}</p>
+      <p className="currency-paragraph">{`You always get the best exchange rate with CurrentCurrency, whether you send, spend or convert money in dozens of currencies. But don\'t take our word for it.`}</p>
       <h2 className="select-currency">Select your base currency</h2>
       <div className="currency-grid">
           {countryCurrency.map((currency, index) => {

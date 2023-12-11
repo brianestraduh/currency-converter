@@ -3,7 +3,7 @@
     .company-logo {
         font-size: 1.875rem;
         font-family: var(--main-font); 
-        color: var(--main-color);
+        color: black;
     }
 
     .text-country-name{
@@ -39,7 +39,7 @@
         font-family: var(--main-font);
         color: black;
     }
-    .currency-paragaph {
+    .currency-paragraph {
         text-align: center;
         font-size: 1.25rem;
         color: var(--light-text-color);
@@ -52,5 +52,12 @@
         font-weight: 300;
         font-family: var(--main-font);
     }
+    .blue-text {
+        color: var(--main-color);
+    }  
+    .center-text {
+        text-align: center;
+    }
+ 
 
 }

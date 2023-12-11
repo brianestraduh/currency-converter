@@ -6,8 +6,8 @@ export default function Footer() {
                     <div className="footer-links">
                         <div className="footer-left">
                             <div className='logo-title-footer'>
-                                <img src="public/assets/logo-currency.svg" alt="logo" width="auto" height="40px" />
-                                <p className='company-logo-footer'>CurrentCurrency</p>
+                                <img src="/assets/logo-currency.svg" alt="logo" width="auto" height="40px" />
+                                <p className='company-logo-footer'>Current<span className="blue-text">Currency</span></p>
                             </div>
                         </div>
                         <div className="footer-rest"> 
@@ -43,7 +43,7 @@ export default function Footer() {
                     </div>
                     <div className="footer-bottom">
                         <div className="footer-bottom-left">
-                            <p>© 2021 All rights reserved.</p>
+                            <p>© 2023 All rights reserved.</p>
                             <a href="#" className='ax-button btn'>Privacy Policy</a>
                             <a href="#" className='ax-button btn'>Terms of Service</a>
                         </div>

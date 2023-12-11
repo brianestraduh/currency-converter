@@ -81,39 +81,41 @@ export default function ResultsPage() {
 
     return (
         <>
-        <h2>ResultsPage</h2>
-        {/* Once I finish functionality I want a Nav bar that says Home when your on Target Page */}
-        <Link to="/">
-            <img 
-            src="/assets/back.svg"
-            width="24px"
-            height="24px" 
-            alt="back arrow" 
-            className="back"/>
-        </Link>
-        {loading ? (
-      <Loader />
-    ) : (
-      <>
-        <button id="swap-base-btn" onClick={()=>handleBaseChange()}>swap</button>
-{/* here I am conditionally showing the conversion rate based on the swap state 
-if it's false then it does the orginal base/target */}        
-{swap ? (
-  <>
-    <h2> <Twemoji text={targetFlagEmoji} /> {targetCurrency} to <Twemoji text={baseFlagEmoji} /> {baseCurrency}</h2>
-    <h2>1 {targetCurrency} = {Number((1/conversionRate).toFixed(4))} {baseCurrency}</h2>
-    <p>{targetCurrency} to {baseCurrency} - Last updated {lastUpdatedTime}</p>
-  </>
-) : (
-  <>
-    <h2><Twemoji text={baseFlagEmoji} />{baseCurrency} to <Twemoji text={targetFlagEmoji} /> {targetCurrency}</h2>
-    <h2>1 {baseCurrency} = {conversionRate} {targetCurrency}</h2>
-    <p>{baseCurrency} to {targetCurrency} - Last updated {lastUpdatedTime}</p>
-  </>
-)}
-      </>
-    )}
-    <button id="refresh-btn" onClick={()=>handleRefresh()}>Refresh</button>
+        <div className="container">
+          <h2 className="center-text">Current<span className="blue-text">Currency</span> Converter</h2>
+          <p className="currency-paragraph">Convert live foreign currency exchange rates</p>
+          <Link to="/">
+              <img 
+              src="/public/assets/back.svg"
+              width="24px"
+              height="24px" 
+              alt="back arrow" 
+              className="back"/>
+          </Link>
+          {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <button id="swap-base-btn" onClick={()=>handleBaseChange()}>swap</button>
+  {/* here I am conditionally showing the conversion rate based on the swap state 
+  if it's false then it does the orginal base/target */}        
+  {swap ? (
+    <>
+      <h2> <Twemoji text={targetFlagEmoji} /> {targetCurrency} to <Twemoji text={baseFlagEmoji} /> {baseCurrency}</h2>
+      <h2>1 {targetCurrency} = {Number((1/conversionRate).toFixed(4))} {baseCurrency}</h2>
+      <p>{targetCurrency} to {baseCurrency} - Last updated {lastUpdatedTime}</p>
+    </>
+  ) : (
+    <>
+      <h2><Twemoji text={baseFlagEmoji} />{baseCurrency} to <Twemoji text={targetFlagEmoji} /> {targetCurrency}</h2>
+      <h2>1 {baseCurrency} = {conversionRate} {targetCurrency}</h2>
+      <p>{baseCurrency} to {targetCurrency} - Last updated {lastUpdatedTime}</p>
+    </>
+  )}
+        </>
+      )}
+      <button id="refresh-btn" onClick={()=>handleRefresh()}>Refresh</button>
+    </div>
         </>
     )
 }

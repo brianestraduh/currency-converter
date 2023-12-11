@@ -4,8 +4,8 @@ export default function Navbar() {
         <>
         <nav className='nav-container'>
             <div className='logo-title'>
-              <img src="public/assets/logo-currency.svg" alt="logo" width="auto" height="40px" />
-              <p className='company-logo'>CurrentCurrency</p>
+              <img src="/assets/logo-currency.svg"  alt="logo" width="auto" height="40px" />
+              <p className='company-logo'>Current<span className="blue-text">Currency</span></p>
             </div>
           <div className='nav-links'>
             <a href="#" className='text-country-code ax-button btn'>Currency Converter</a>
