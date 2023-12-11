@@ -3,12 +3,15 @@ import Currencies from './Currencies.jsx'
 import ResultsPage from './ResultsPage.jsx'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
+import { Provider } from 'react-redux'
+import { store } from '/src/store.js'
 
 function App() {
 
 
   return (
     <>
+    <Provider store={store}>
       <BrowserRouter>
         <Navbar></Navbar>
         <Routes>
@@ -17,6 +20,7 @@ function App() {
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
+      </Provider>
 
     </>
   )

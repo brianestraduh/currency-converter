@@ -4,11 +4,10 @@ export default function TrackRateAnchor(props) {
     return (
         <div className="container">
             <div className="track-rate-grid">
-                <a  className={`${classes} rounded-button ax-button btn `} {...rest} disabled={disabled}>
+                <button className={`${classes} rounded-button ax-button btn`} {...rest} disabled={disabled}>
                     {children}Track exchange rate
-                </a> 
+                </button> 
             </div>
         </div>   
     )
-
 }

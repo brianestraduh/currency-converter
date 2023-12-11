@@ -4,6 +4,8 @@ import BaseCurrency from "./BaseCurrency.jsx";
 import TargetCurrency from "./TargetCurrency.jsx";
 import TrackRateAnchor from "./TrackRateAnchor.jsx";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addBaseCurrency, addTargetCurrency } from "./store.js";
 export default function Currencies() {
 
     const [countryCurrency, setCountryCurrency] = useState([])
@@ -11,7 +13,8 @@ export default function Currencies() {
     const [activeTargetCurrency, setActiveTargetCurrency] = useState('')
     const [trackRateActive, setTrackRate] = useState(false)
 
-    
+    const dispatch = useDispatch();
+
 // Callback functions
 const handleBaseCurrencyClick = (index) => {
     setActiveBaseCurrency(index);
@@ -61,7 +64,12 @@ const handleTrackRate = () => {
               key={index}
               details={currency}
               isActive={index===activeBaseCurrency}
-              onClick={() => { handleBaseCurrencyClick(index); handleTrackRate(); }} />
+              onClick={() => { 
+                if (index===activeBaseCurrency) {
+                  dispatch(addBaseCurrency(currency[0]))
+                }
+                handleBaseCurrencyClick(index); 
+                handleTrackRate(); }} />
           })}
       </div>
       <h2 className="select-currency">Select your target currency</h2>
