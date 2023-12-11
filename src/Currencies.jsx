@@ -50,7 +50,11 @@ const handleTrackRate = () => {
   return (
     <>
     <div className="container">
-      <h2>Select your base currency</h2>
+      <header>
+        <h1 >The safe and easy way to <strong>exchange</strong> your <strong>money</strong></h1>
+      </header>
+      <p className="currency-paragaph">{`You always get the best exchange rate with CurrentCurrency, whether you send, spend or convert money in dozens of currencies. But don\'t take our word for it.`}</p>
+      <h2 className="select-currency">Select your base currency</h2>
       <div className="currency-grid">
           {countryCurrency.map((currency, index) => {
               return <BaseCurrency 
@@ -60,7 +64,7 @@ const handleTrackRate = () => {
               onClick={() => { handleBaseCurrencyClick(index); handleTrackRate(); }} />
           })}
       </div>
-      <h2>Select your target currency</h2>
+      <h2 className="select-currency">Select your target currency</h2>
       <div className="currency-grid">
           {countryCurrency.map((currency, index) => {
               return <TargetCurrency
@@ -73,11 +77,11 @@ const handleTrackRate = () => {
       </div>
   {trackRateActive ? (
     <Link to={`/${baseCurrencyCode}/${targetCurrencyCode}`}>
-      <TrackRateAnchor>Track Rate</TrackRateAnchor>
+      <TrackRateAnchor></TrackRateAnchor>
     </Link>
   ) : (
     <span>
-      <TrackRateAnchor disabled>Track Rate</TrackRateAnchor>
+      <TrackRateAnchor className="track-rate-disabled" disabled></TrackRateAnchor>
     </span>
   )}
   </div>

@@ -4,7 +4,7 @@
     }
     
     body {
-        font-family: system-ui;
+        font-family: var(--main-font);
         margin: 0;
     }
 
@@ -28,5 +28,9 @@
         all: unset; 
         outline: revert; 
         box-sizing: border-box;
+    }
+
+    a {
+        all: unset;
     }
 }

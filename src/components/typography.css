@@ -9,6 +9,7 @@
     .text-country-name{
         font-size: 0.875rem;
         color: var(--light-text-color);
+        font-family: var(--main-font);
     }
 
     .text-country-code {
@@ -23,11 +24,13 @@
         font-weight: normal;
         font-family: var(--main-font);
         color: var(--light-text-color);
+        
     }
 
     .text-dimmed {
         font-size: 0.875rem;
         color: var(--light-text-color);
+        font-family: var(--main-font);
     }
 
     .text-bold {
@@ -35,6 +38,19 @@
         font-weight: bold;
         font-family: var(--main-font);
         color: black;
+    }
+    .currency-paragaph {
+        text-align: center;
+        font-size: 1.25rem;
+        color: var(--light-text-color);
+        font-family: var(--main-font);
+    }
+
+    .select-currency {
+        font-size: 1.75rem;
+        color: black;
+        font-weight: 300;
+        font-family: var(--main-font);
     }
 
 }

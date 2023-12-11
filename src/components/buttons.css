@@ -6,6 +6,9 @@
         padding: 10px 20px;
         font-size: 1em;
     }
+    .rounded-button:active {
+        transform: translateY(2px);
+    }
 
     .btn {
         cursor: pointer;
