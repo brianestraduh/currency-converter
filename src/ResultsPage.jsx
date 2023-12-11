@@ -5,11 +5,13 @@ import Loader from "./Loader";
 import {getEmojiByCurrencyCode} from "country-currency-emoji-flags";
 import { Twemoji } from 'react-emoji-render';
 import { useSelector } from "react-redux";
+import CurrencyInput from "./CurrencyInput";
 
 export default function ResultsPage() {
 
-  const selectedCurrency = useSelector((state) => state.selectedCurrency);
-  console.log(selectedCurrency)
+  const baseCurrName = useSelector((state) => state.selectedCurrency.base);
+  const targetCurrName = useSelector((state) => state.selectedCurrency.target);
+  
 
     const { baseCurrCode, targetCurrCode } = useParams();
 
@@ -26,6 +28,12 @@ export default function ResultsPage() {
     const [lastUpdatedTime, setLastUpdatedTime] = useState('')
     const [swap, setSwap] = useState(false)
     const [refresh, setRefresh] = useState(false)
+    const [currencyValue, setCurrencyValue] = useState(1.00);
+
+    const handleValueChange = (value) => {
+        setCurrencyValue(value);
+    };
+
 
     //need to disable refresh button during api call
     const { get, loading } = useFetch('https://v6.exchangerate-api.com/v6/b560af4e412f93257f414644/pair')
@@ -89,6 +97,7 @@ export default function ResultsPage() {
         <div className="container">
           <h2 className="center-text company-logo header">Current<span className="blue-text">Currency</span> Converter</h2>
           <p className="currency-paragraph">Convert live foreign currency exchange rates</p>
+          <CurrencyInput onValueChange={(value) => handleValueChange(value)} className="input-currency big-blue-text" />
           {loading ? (
         <Loader />
       ) : (
@@ -99,20 +108,21 @@ export default function ResultsPage() {
     <>
     <div className="result-card-flex">
       <div className="selected-currency-card"> 
-        <Twemoji text={targetFlagEmoji} /> {targetCurrency}
+        <Twemoji text={targetFlagEmoji} /> {targetCurrency}<span className="text-dimmed"> - {baseCurrName}</span>
       </div>
       <button id="swap-base-btn" onClick={()=>handleBaseChange()} className="ax-button rounded-swap-button">
         <img src="/assets/swap.svg" alt="swap button" height="24px" width="auto" />
       </button>
       <div className="selected-currency-card">
-        <Twemoji text={baseFlagEmoji} /> {baseCurrency}
+        <Twemoji text={baseFlagEmoji} /> {baseCurrency}<span className="text-dimmed"> - {baseCurrName}</span>
       </div>
     </div>
-      <div className="center-text">
-        <p>1 {targetCurrency} = {Number((1/conversionRate).toFixed(4))} {baseCurrency}</p>
+      <div className="conversion-flex center-text">
+        <p className="text-dimmed conv-upper">{currencyValue} {targetCurrency} =</p> 
+        <p className="conv-lower"> {Number((currencyValue/conversionRate).toFixed(4))} {baseCurrName}</p>
       </div>
       <div className="results-update-flex">
-        <p>{targetCurrency} to {baseCurrency} - Last updated {lastUpdatedTime}</p>
+        <p><span className="dimmed-underlined">{targetCurrName}</span> to <span className="dimmed-underlined">{baseCurrency}</span> - Last updated {lastUpdatedTime}</p>
         <button id="refresh-btn" onClick={()=>handleRefresh()} className="rounded-button ax-button">Refresh</button>
       </div>
     </>
@@ -120,20 +130,21 @@ export default function ResultsPage() {
     <>
     <div className="result-card-flex">
       <div className="selected-currency-card"> 
-        <Twemoji text={baseFlagEmoji} /> {baseCurrency}
+        <Twemoji text={baseFlagEmoji} /> {baseCurrency}<span className="text-dimmed"> - {baseCurrName}</span>
       </div>
       <button id="swap-base-btn" onClick={()=>handleBaseChange()} className="ax-button rounded-swap-button">
         <img src="/assets/swap.svg" alt="swap button" height="24px" width="auto"/>
       </button>
       <div className="selected-currency-card">
-        <Twemoji text={targetFlagEmoji} /> {targetCurrency}
+        <Twemoji text={targetFlagEmoji} /> {targetCurrency}<span className="text-dimmed"> - {targetCurrName}</span>
       </div>
     </div>
-    <div className="center-text">
-      <p>1 {baseCurrency} = {conversionRate} {targetCurrency}</p>
-    </div>
+    <div className="conversion-flex center-text">
+        <p className="text-dimmed conv-upper">{currencyValue} {baseCurrName} =</p> 
+        <p className="conv-lower"> {Number((conversionRate/currencyValue).toFixed(4))} {targetCurrName}</p>
+      </div>
     <div className="results-update-flex">
-      <p>{baseCurrency} to {targetCurrency} - Last updated {lastUpdatedTime}</p>
+      <p><span className="dimmed-underlined">{baseCurrName}</span> to <span className="dimmed-underlined">{targetCurrName}</span> - Last updated {lastUpdatedTime}</p>
       <button id="refresh-btn" onClick={()=>handleRefresh()} className="rounded-button ax-button">Refresh
       </button>
     </div>

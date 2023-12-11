@@ -59,4 +59,12 @@
         text-align: center;
     }
 
+    .dimmed-underlined {
+        text-decoration: underline;
+        text-decoration-color: var(--light-text-color);
+        text-decoration-thickness: 2px;
+        color: var(--main-color);
+    }
+
+
 }
