@@ -26,11 +26,11 @@ export default function Footer() {
                                 <a href="#" className='ax-button btn text-dimmed'>Careers</a>
                             </div>
                             <div className="grid">
-                                <a href="#" className='text-country-code ax-button btn text-bold'>How It Works</a>
-                                <a href="#" className='ax-button btn text-dimmed'>Hire Employees</a>
-                                <a href="#" className='ax-button btn text-dimmed'>Hire Contractors</a>
-                                <a href="#" className='ax-button btn text-dimmed'>Global Payroll</a>
-                                <a href="#" className='ax-button btn text-dimmed'>Integrations</a>
+                                <a href="#" className='text-country-code ax-button btn text-bold'>Solutions</a>
+                                <a href="#" className='ax-button btn text-dimmed'>Compliances</a>
+                                <a href="#" className='ax-button btn text-dimmed'>Payments</a>
+                                <a href="#" className='ax-button btn text-dimmed'>Taxes</a>
+                                <a href="#" className='ax-button btn text-dimmed'>Enterprises</a>
                             </div>
                             <div className="grid">
                                 <a href="#" className='ax-button text-country-code btn text-bold'>Resources</a>
