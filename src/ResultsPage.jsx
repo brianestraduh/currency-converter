@@ -141,7 +141,7 @@ export default function ResultsPage() {
     </div>
     <div className="conversion-flex center-text">
         <p className="text-dimmed conv-upper">{currencyValue} {baseCurrName} =</p> 
-        <p className="conv-lower"> {Number((conversionRate/currencyValue).toFixed(4))} {targetCurrName}</p>
+        <p className="conv-lower"> {Number((conversionRate*currencyValue).toFixed(4))} {targetCurrName}</p>
       </div>
     <div className="results-update-flex">
       <p><span className="dimmed-underlined">{baseCurrName}</span> to <span className="dimmed-underlined">{targetCurrName}</span> - Last updated {lastUpdatedTime}</p>
