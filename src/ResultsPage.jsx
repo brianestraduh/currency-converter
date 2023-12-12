@@ -118,7 +118,7 @@ export default function ResultsPage() {
       </div>
     </div>
       <div className="conversion-flex center-text">
-        <p className="text-dimmed conv-upper">{currencyValue} {targetCurrency} =</p> 
+        <p className="text-dimmed conv-upper">{currencyValue} {targetCurrName} =</p> 
         <p className="conv-lower"> {Number((currencyValue/conversionRate).toFixed(4))} {baseCurrName}</p>
       </div>
       <div className="results-update-flex">
