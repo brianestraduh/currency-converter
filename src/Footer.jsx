@@ -48,9 +48,9 @@ export default function Footer() {
                             <a href="#" className='ax-button btn'>Terms of Service</a>
                         </div>
                         <div className="footer-bottom-right">
-                            <a href="#" className='ax-button btn'><img src="public/assets/fb.svg" alt="facebook link" height="24px" width="auto" /></a>
-                            <a href="#" className='ax-button btn'><img src="public/assets/x.svg" alt="x social link" height="24px" width="auto" /></a>
-                            <a href="#" className='ax-button btn'><img src="public/assets/linkedin.svg" alt="facebook link" height="24px" width="auto" /></a>
+                            <a href="#" className='ax-button btn'><img src="/assets/fb.svg" alt="facebook link" height="24px" width="auto" /></a>
+                            <a href="#" className='ax-button btn'><img src="/assets/x.svg" alt="x social link" height="24px" width="auto" /></a>
+                            <a href="#" className='ax-button btn'><img src="/assets/linkedin.svg" alt="facebook link" height="24px" width="auto" /></a>
                         </div>
                     </div>
                 </div>
