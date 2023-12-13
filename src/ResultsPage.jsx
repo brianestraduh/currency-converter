@@ -108,7 +108,7 @@ export default function ResultsPage() {
     <>
     <div className="result-card-flex">
       <div className="selected-currency-card"> 
-        <Twemoji text={targetFlagEmoji} /> {targetCurrency}<span className="text-dimmed"> - {baseCurrName}</span>
+        <Twemoji text={targetFlagEmoji} /> {targetCurrency}<span className="text-dimmed"> - {targetCurrName}</span>
       </div>
       <button id="swap-base-btn" onClick={()=>handleBaseChange()} className="ax-button rounded-swap-button">
         <img src="/assets/swap.svg" alt="swap button" height="24px" width="auto" />
