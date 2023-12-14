@@ -9,9 +9,12 @@ import { addBaseCurrency, addTargetCurrency } from "./store.js";
 export default function Currencies() {
 
   //state variables
+    //state contains an array of currency codes and their corresponding name
     const [countryCurrency, setCountryCurrency] = useState([])
+    //state contains the index of the selected base/target currency
     const [activeBaseCurrency, setActiveBaseCurrency] = useState(null)
     const [activeTargetCurrency, setActiveTargetCurrency] = useState(null)
+    //state contains the boolean value of whether the track rate button is enabled or disabled
     const [trackRateActive, setTrackRate] = useState(false)
   // initalize dispatch in order to save base and target currencies to redux store
     const dispatch = useDispatch();
@@ -51,8 +54,9 @@ useEffect(() => {
       })
   }, [])
 
-  const baseCurrencyCode = activeBaseCurrency !== null && countryCurrency[activeBaseCurrency] ? countryCurrency[activeBaseCurrency][0] : null;
-  const targetCurrencyCode = activeTargetCurrency !== null && countryCurrency[activeTargetCurrency] ? countryCurrency[activeTargetCurrency][0] : null;
+  // the selected base and target currency codes, and will be used to create the url path for the track rate button
+  const selectedBaseCurrencyCode = activeBaseCurrency !== null && countryCurrency[activeBaseCurrency] ? countryCurrency[activeBaseCurrency][0] : null;
+  const selectedTargetCurrencyCode = activeTargetCurrency !== null && countryCurrency[activeTargetCurrency] ? countryCurrency[activeTargetCurrency][0] : null;
 
   return (
     <>
@@ -79,7 +83,7 @@ useEffect(() => {
           {countryCurrency.map((currency, index) => {
               return <TargetCurrency
               key={index}
-              details={{currency, activeBaseCurrency}}
+              details={currency}
               isActive={(index)=== activeTargetCurrency}
               disabled={(index)===activeBaseCurrency}
               onClick={() => { 
@@ -89,7 +93,7 @@ useEffect(() => {
           })}
       </div>
   {trackRateActive ? (
-    <Link to={`/${baseCurrencyCode}/${targetCurrencyCode}`}>
+    <Link to={`/${selectedBaseCurrencyCode}/${selectedTargetCurrencyCode}`}>
       <TrackRateAnchor></TrackRateAnchor>
     </Link>
   ) : (

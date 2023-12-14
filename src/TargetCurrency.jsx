@@ -5,8 +5,8 @@ import { Twemoji } from 'react-emoji-render';
 export default function TargetCurrency(props) {
 
     const {details, onClick, isActive, disabled} = props;
-    const code = details.currency[0];
-    const name = details.currency[1];
+    const code = details[0];
+    const name = details[1];
     const isBaseSelected = details.activeBaseCurrency ;
     const flagEmoji = getEmojiByCurrencyCode(code) || '🏳️';
 
