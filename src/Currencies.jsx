@@ -9,8 +9,8 @@ import { addBaseCurrency, addTargetCurrency } from "./store.js";
 export default function Currencies() {
 
     const [countryCurrency, setCountryCurrency] = useState([])
-    const [activeBaseCurrency, setActiveBaseCurrency] = useState('')
-    const [activeTargetCurrency, setActiveTargetCurrency] = useState('')
+    const [activeBaseCurrency, setActiveBaseCurrency] = useState(null)
+    const [activeTargetCurrency, setActiveTargetCurrency] = useState(null)
     const [trackRateActive, setTrackRate] = useState(false)
 
     const dispatch = useDispatch();
@@ -62,12 +62,12 @@ const handleTrackRate = () => {
       <div className="currency-grid">
           {countryCurrency.map((currency, index) => {
               return <BaseCurrency 
-              key={index}
+              key={index +1}
               details={currency}
-              isActive={index===activeBaseCurrency}
+              isActive={(index+1)===activeBaseCurrency}
               onClick={() => { 
                 dispatch(addBaseCurrency(currency[1]));
-                handleBaseCurrencyClick(index); 
+                handleBaseCurrencyClick(index+1); 
                 handleTrackRate(); }} />
           })}
       </div>
@@ -75,13 +75,13 @@ const handleTrackRate = () => {
       <div className="currency-grid">
           {countryCurrency.map((currency, index) => {
               return <TargetCurrency
-              key={index}
+              key={index + 1}
               details={{currency, activeBaseCurrency}}
-              isActive={index=== activeTargetCurrency}
-              disabled={index===activeBaseCurrency}
+              isActive={(index+1)=== activeTargetCurrency}
+              disabled={(index+1)===activeBaseCurrency}
               onClick={() => { 
                 dispatch(addTargetCurrency(currency[1]));
-                handleTargetCurrencyClick(index); 
+                handleTargetCurrencyClick(index +1); 
                 handleTrackRate(); }} />
           })}
       </div>
