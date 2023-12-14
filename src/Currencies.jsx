@@ -67,6 +67,7 @@ useEffect(() => {
       <p className="currency-paragraph">{`You always get the best exchange rate with CurrentCurrency, whether you send, spend or convert money in dozens of currencies. But don\'t take our word for it.`}</p>
       <h2 className="select-currency">Select your base currency</h2>
       <div className="currency-grid">
+        {/* map through the countryCurrency array and render a BaseCurrency button component for each currency code and name */}
           {countryCurrency.map((currency, index) => {
               return <BaseCurrency 
               key={index}
@@ -80,6 +81,7 @@ useEffect(() => {
       </div>
       <h2 className="select-currency">Select your target currency</h2>
       <div className="currency-grid">
+        {/* map through the countryCurrency array and render a TargetCurrency button component for each currency code and name */}
           {countryCurrency.map((currency, index) => {
               return <TargetCurrency
               key={index}
