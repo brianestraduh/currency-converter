@@ -96,11 +96,11 @@ useEffect(() => {
       </div>
   {trackRateActive ? (
     <Link to={`/${selectedBaseCurrencyCode}/${selectedTargetCurrencyCode}`}>
-      <TrackRateAnchor></TrackRateAnchor>
+      <TrackRateAnchor aria-label="Track rate for selected currencies"></TrackRateAnchor>
     </Link>
   ) : (
     <span>
-      <TrackRateAnchor className="track-rate-disabled" disabled></TrackRateAnchor>
+      <TrackRateAnchor className="track-rate-disabled" disabled aria-label="Track rate (disabled)"></TrackRateAnchor>
     </span>
   )}
   </div>
