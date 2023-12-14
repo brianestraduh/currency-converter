@@ -17,12 +17,12 @@ export default function Currencies() {
 
 // Callback functions
 const handleBaseCurrencyClick = (index) => {
-    setActiveBaseCurrency(index);
+    setActiveBaseCurrency(index+1);
     console.log(index); // Add this line
   };
   
   const handleTargetCurrencyClick = (index) => {
-    setActiveTargetCurrency(index);
+    setActiveTargetCurrency(index+1);
   };
 
 //function to set track rate button to active if both base and target currencies are selected
