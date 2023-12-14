@@ -8,43 +8,46 @@ import { useDispatch } from "react-redux";
 import { addBaseCurrency, addTargetCurrency } from "./store.js";
 export default function Currencies() {
 
+  //state variables
     const [countryCurrency, setCountryCurrency] = useState([])
     const [activeBaseCurrency, setActiveBaseCurrency] = useState(null)
     const [activeTargetCurrency, setActiveTargetCurrency] = useState(null)
     const [trackRateActive, setTrackRate] = useState(false)
-
+  // initalize dispatch in order to save base and target currencies to redux store
     const dispatch = useDispatch();
 
-// Callback functions
+// handle state changes when base and target currencies are selected
 const handleBaseCurrencyClick = (index) => {
     setActiveBaseCurrency(index);
-    console.log(index); // Add this line
   };
   
   const handleTargetCurrencyClick = (index) => {
     setActiveTargetCurrency(index);
   };
 
-//function to set track rate button to active if both base and target currencies are selected
+  // enable or keeep track rate button disabled
+  const handleTrackRate = () => {
+    if (activeBaseCurrency !== '' && activeTargetCurrency !== '') {
+      setTrackRate(true);
+    } else {
+      setTrackRate(false);
+    }
+  };
+  
+
+// useEffect to handle state changes when base and target currencies are selected to see if track rate button should be enabled or disabled
 useEffect(() => {
   handleTrackRate();
 }, [activeBaseCurrency, activeTargetCurrency]);
 
-const handleTrackRate = () => {
-  if (activeBaseCurrency !== '' && activeTargetCurrency !== '') {
-    setTrackRate(true);
-  } else {
-    setTrackRate(false);
-  }
-};
 
-    const {get} = useFetch('https://v6.exchangerate-api.com/v6/b560af4e412f93257f414644')
-  
-   useEffect(() => {
-      get('/codes')
-      .then(data => {
-        console.log(data.supported_codes)
-        setCountryCurrency(data.supported_codes)
+  const {get} = useFetch('https://v6.exchangerate-api.com/v6/b560af4e412f93257f414644')
+ 
+// fetch supported country codes when this component mounts  
+useEffect(() => {
+  get('/codes')
+  .then(data => {
+    setCountryCurrency(data.supported_codes)
       })
   }, [])
 
