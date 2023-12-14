@@ -51,7 +51,7 @@ const store = configureStore({
 
 store.subscribe(() => {
     try {
-      const serializedState = JSON.stringify(store.getState().cart);
+      const serializedState = JSON.stringify(store.getState().selectedCurrency);
       localStorage.setItem('selectedCurrency', serializedState);
     } catch {
       // ignore write errors
