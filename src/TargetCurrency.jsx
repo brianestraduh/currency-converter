@@ -15,7 +15,7 @@ export default function TargetCurrency(props) {
         className="currency-card"
          isActive={isActive} 
          onClick={onClick}
-        disabled={disabled || !isBaseSelected}>
+        disabled={disabled || isBaseSelected === null}>
         <div className="country-items">
             <div className="emoji-code-pair">
                 <Twemoji text={flagEmoji} />         

@@ -17,12 +17,12 @@ export default function Currencies() {
 
 // Callback functions
 const handleBaseCurrencyClick = (index) => {
-    setActiveBaseCurrency(index+1);
+    setActiveBaseCurrency(index);
     console.log(index); // Add this line
   };
   
   const handleTargetCurrencyClick = (index) => {
-    setActiveTargetCurrency(index+1);
+    setActiveTargetCurrency(index);
   };
 
 //function to set track rate button to active if both base and target currencies are selected
@@ -62,12 +62,12 @@ const handleTrackRate = () => {
       <div className="currency-grid">
           {countryCurrency.map((currency, index) => {
               return <BaseCurrency 
-              key={index +1}
+              key={index}
               details={currency}
-              isActive={(index+1)===activeBaseCurrency}
+              isActive={(index)===activeBaseCurrency}
               onClick={() => { 
                 dispatch(addBaseCurrency(currency[1]));
-                handleBaseCurrencyClick(index+1); 
+                handleBaseCurrencyClick(index); 
                 handleTrackRate(); }} />
           })}
       </div>
@@ -75,13 +75,13 @@ const handleTrackRate = () => {
       <div className="currency-grid">
           {countryCurrency.map((currency, index) => {
               return <TargetCurrency
-              key={index + 1}
+              key={index}
               details={{currency, activeBaseCurrency}}
-              isActive={(index+1)=== activeTargetCurrency}
-              disabled={(index+1)===activeBaseCurrency}
+              isActive={(index)=== activeTargetCurrency}
+              disabled={(index)===activeBaseCurrency}
               onClick={() => { 
                 dispatch(addTargetCurrency(currency[1]));
-                handleTargetCurrencyClick(index +1); 
+                handleTargetCurrencyClick(index); 
                 handleTrackRate(); }} />
           })}
       </div>
