@@ -13,8 +13,9 @@ export default function Currencies() {
   //state contains the index of the selected base/target currency
   const [activeBaseCurrency, setActiveBaseCurrency] = useState(null);
   const [activeTargetCurrency, setActiveTargetCurrency] = useState(null);
-  //state contains the boolean value of whether the track rate button is enabled or disabled
-  const [trackRateActive, setTrackRate] = useState(false);
+
+  const trackRateActive =
+    activeBaseCurrency !== null && activeTargetCurrency !== null;
   // initalize dispatch in order to save base and target currencies to redux store
   const dispatch = useDispatch();
 
@@ -26,20 +27,6 @@ export default function Currencies() {
   const handleTargetCurrencyClick = (index) => {
     setActiveTargetCurrency(index);
   };
-
-  // enable or keeep track rate button disabled
-  const handleTrackRate = () => {
-    if (activeBaseCurrency !== "" && activeTargetCurrency !== "") {
-      setTrackRate(true);
-    } else {
-      setTrackRate(false);
-    }
-  };
-
-  // useEffect to handle state changes when base and target currencies are selected to see if track rate button should be enabled or disabled
-  useEffect(() => {
-    handleTrackRate();
-  }, [activeBaseCurrency, activeTargetCurrency]);
 
   const { get } = useFetch(
     "https://v6.exchangerate-api.com/v6/b560af4e412f93257f414644"
@@ -90,7 +77,6 @@ export default function Currencies() {
                 onClick={() => {
                   dispatch(addBaseCurrency(currency[1]));
                   handleBaseCurrencyClick(index);
-                  handleTrackRate();
                 }}
               />
             );
@@ -105,11 +91,12 @@ export default function Currencies() {
                 key={index}
                 details={currency}
                 isActive={index === activeTargetCurrency}
-                disabled={index === activeBaseCurrency}
+                disabled={
+                  index === activeBaseCurrency || activeBaseCurrency === null
+                }
                 onClick={() => {
                   dispatch(addTargetCurrency(currency[1]));
                   handleTargetCurrencyClick(index);
-                  handleTrackRate();
                 }}
               />
             );

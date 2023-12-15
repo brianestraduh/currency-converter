@@ -6,7 +6,7 @@ export default function Navbar() {
           <img
             src="/assets/logo-currency.svg"
             alt="logo"
-            width="auto"
+            width="40px"
             height="40px"
           />
           <p className="company-logo">

@@ -9,7 +9,7 @@ export default function Footer() {
                 <img
                   src="/assets/logo-currency.svg"
                   alt="logo"
-                  width="auto"
+                  width="40px"
                   height="40px"
                 />
                 <p className="company-logo-footer">
@@ -116,7 +116,7 @@ export default function Footer() {
                   src="/assets/fb.svg"
                   alt="facebook link"
                   height="24px"
-                  width="auto"
+                  width="24px"
                 />
               </a>
               <a href="#" className="ax-button btn">
@@ -124,7 +124,7 @@ export default function Footer() {
                   src="/assets/x.svg"
                   alt="x social link"
                   height="24px"
-                  width="auto"
+                  width="24px"
                 />
               </a>
               <a href="#" className="ax-button btn">
@@ -132,7 +132,7 @@ export default function Footer() {
                   src="/assets/linkedin.svg"
                   alt="facebook link"
                   height="24px"
-                  width="auto"
+                  width="24px"
                 />
               </a>
             </div>
