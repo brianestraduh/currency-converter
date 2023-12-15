@@ -1,8 +1,8 @@
 @layer component {
-    .container {
-        margin: auto;
-        max-width: 1300px;
-        padding-inline: 20px;
-        position: relative; /* for back arrow on results page */
-    }
+  .container {
+    margin: auto;
+    max-width: 1300px;
+    padding-inline: 20px;
+    position: relative; /* for back arrow on results page */
+  }
 }

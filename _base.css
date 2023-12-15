@@ -1,45 +1,47 @@
 @layer base {
-    * {
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: var(--main-font);
-        margin: 0;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    :root {
-        --main-color: #355FE5;
-        --text-color: #OA112F;
-        --main-font: 'Montserrat', sans-serif;
-        --background-color: #f3f3f3;
-        --light-text-color: #5c5c5c;
+  body {
+    font-family: var(--main-font);
+    margin: 0;
+  }
 
-    }
+  :root {
+    --main-color: #355fe5;
+    --text-color: #OA112F;
+    --main-font: "Montserrat", sans-serif;
+    --background-color: #f3f3f3;
+    --light-text-color: #5c5c5c;
+  }
 
-    html {
-        background-color: var(--background-color);
-    }
-    input, textarea, button, select {
-        font: inherit;
-    }
-     
-    .ax-button{
-        all: unset; 
-        outline: revert; 
-        box-sizing: border-box;
-    }
+  html {
+    background-color: var(--background-color);
+  }
+  input,
+  textarea,
+  button,
+  select {
+    font: inherit;
+  }
 
-    a {
-        all: unset;
-    }
-    input {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        outline: none;
-        border: none;
-        background: transparent;
-        box-shadow: none;
-    }
+  .ax-button {
+    all: unset;
+    outline: revert;
+    box-sizing: border-box;
+  }
+
+  a {
+    all: unset;
+  }
+  input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
 }

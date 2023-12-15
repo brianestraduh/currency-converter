@@ -1,14 +1,13 @@
 @layer component {
-    .track-rate-grid {
-        display: grid;
-        grid-template-columns: auto-fit;
-        justify-content: end;
-        align-items: center;
-        margin: 2rem 0;
-        padding-right: 2rem;
-    }
-    .track-rate-disabled {
-        opacity: 0.5;
-    }
-
+  .track-rate-grid {
+    display: grid;
+    grid-template-columns: auto-fit;
+    justify-content: end;
+    align-items: center;
+    margin: 2rem 0;
+    padding-right: 2rem;
+  }
+  .track-rate-disabled {
+    opacity: 0.5;
+  }
 }

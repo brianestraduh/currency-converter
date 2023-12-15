@@ -1,70 +1,66 @@
 @layer component {
+  .company-logo {
+    font-size: 1.875rem;
+    font-family: var(--main-font);
+    color: black;
+  }
 
-    .company-logo {
-        font-size: 1.875rem;
-        font-family: var(--main-font); 
-        color: black;
-    }
+  .text-country-name {
+    font-size: 0.875rem;
+    color: var(--light-text-color);
+    font-family: var(--main-font);
+  }
 
-    .text-country-name{
-        font-size: 0.875rem;
-        color: var(--light-text-color);
-        font-family: var(--main-font);
-    }
+  .text-country-code {
+    font-size: 0.875rem;
+    font-weight: bold;
+    font-family: var(--main-font);
+    color: black;
+  }
 
-    .text-country-code {
-        font-size: 0.875rem;
-        font-weight: bold;
-        font-family: var(--main-font);
-        color: black;
-    }
+  .text-country-name {
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-family: var(--main-font);
+    color: var(--light-text-color);
+  }
 
-    .text-country-name {
-        font-size: 0.875rem;
-        font-weight: normal;
-        font-family: var(--main-font);
-        color: var(--light-text-color);
-        
-    }
+  .text-dimmed {
+    font-size: 0.875rem;
+    color: var(--light-text-color);
+    font-family: var(--main-font);
+  }
 
-    .text-dimmed {
-        font-size: 0.875rem;
-        color: var(--light-text-color);
-        font-family: var(--main-font);
-    }
+  .text-bold {
+    font-size: 0.875rem;
+    font-weight: bold;
+    font-family: var(--main-font);
+    color: black;
+  }
+  .currency-paragraph {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--light-text-color);
+    font-family: var(--main-font);
+  }
 
-    .text-bold {
-        font-size: 0.875rem;
-        font-weight: bold;
-        font-family: var(--main-font);
-        color: black;
-    }
-    .currency-paragraph {
-        text-align: center;
-        font-size: 1.25rem;
-        color: var(--light-text-color);
-        font-family: var(--main-font);
-    }
+  .select-currency {
+    font-size: 1.75rem;
+    color: black;
+    font-weight: 300;
+    font-family: var(--main-font);
+  }
+  .blue-text {
+    color: var(--main-color);
+  }
+  .center-text {
+    text-align: center;
+  }
 
-    .select-currency {
-        font-size: 1.75rem;
-        color: black;
-        font-weight: 300;
-        font-family: var(--main-font);
-    }
-    .blue-text {
-        color: var(--main-color);
-    }  
-    .center-text {
-        text-align: center;
-    }
-
-    .dimmed-underlined {
-        text-decoration: underline;
-        text-decoration-color: var(--light-text-color);
-        text-decoration-thickness: 2px;
-        color: var(--main-color);
-    }
-
-
+  .dimmed-underlined {
+    text-decoration: underline;
+    text-decoration-color: var(--light-text-color);
+    text-decoration-thickness: 2px;
+    color: var(--main-color);
+  }
 }
